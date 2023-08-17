@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <h1>Lista de Tarefas</h1>
+  <div>
+    <label for="desc">Descrição:</label>
+    <input type="text" id="desc">
+    <label for="autor">Autor:</label>
+    <input type="text" id="autor">
+    <label for="depto">Departamento:</label>
+    <input type="text" id="depto">
+    <label for="importancia">Importância (1-10):</label>
+    <input type="number" id="importancia" min="1" max="10">
+    <button id="adcBotao">Adicionar</button>
+    <button id="mostrarOrdemBtn">Tabela em Ordem de Importância</button>
+  </div>
+
+  <table id="tabelaTarefa">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Autor</th>
+        <th>Departamento</th>
+        <th>Importância</th>
+        <th>Valor (Pago)</th>
+        <th>Duração (Realizada)</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Tarefas serão adicionadas dinamicamente aqui -->
+    </tbody>
+</table>
+<h2 id="tituloImportancia" style="display: none;">Lista de Tarefas por Ordem de Importância</h2>
+<ul id="listaImportancia" style="display: none;"></ul>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
