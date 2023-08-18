@@ -10,8 +10,8 @@ const mostrarOrdemBtn = document.getElementById('mostrarOrdemBtn');
 let tarefas = [];
 
 function renderTable() {
-  const tableBody = tabelaTarefa.querySelector('tbody');
-  tableBody.innerHTML = '';
+  const tbody = tabelaTarefa.querySelector('tbody');
+  tbody.innerHTML = '';
   tarefas.forEach((tarefa, index) => {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -23,7 +23,7 @@ function renderTable() {
       <td>${tarefa.duracao || ''}</td>
       <td><button onclick="deletaTarefa(${index})">Excluir</button></td>
     `;
-    tableBody.appendChild(row);
+    tbody.appendChild(row);
   });
 }
 
@@ -42,38 +42,38 @@ function deletaTarefa(index) {
   renderTable();
   renderlistaImportancia();
 }
-      adcBotao.addEventListener('click', () => {
-        const descricao = descricaoInput.value
-        const autor = autorInput.value
-        const depto = deptoInput.value
-        const importancia = parseInt(importanciaInput.value);
-        const tarefa = { descricao, autor, depto, importancia };
-        const isPaid = confirm('A tarefa foi paga à parte?');
-        if (isPaid) {
-          const value = parseFloat(prompt('Valor pago:'));
-          tarefa.value = value;
-        }
-        const isCompleted = confirm('A tarefa foi realizada à parte?');
-        if (isCompleted) {
-          const duracao = parseFloat(prompt('Duração da tarefa (horas):'));
-          tarefa.duracao = duracao;
-        }
-        tarefas.push(tarefa);
-        renderTable();
-        renderlistaImportancia();
-  
-        descricaoInput.value = '';
-        autorInput.value = '';
-        deptoInput.value = '';
-        importanciaInput.value = '';
-      });
+adcBotao.addEventListener('click', () => {
+  const descricao = descricaoInput.value
+  const autor = autorInput.value
+  const depto = deptoInput.value
+  const importancia = parseInt(importanciaInput.value);
+  const tarefa = { descricao, autor, depto, importancia };
+  const isPaid = confirm('A tarefa foi paga à parte?');
+  if (isPaid) {
+    const value = parseFloat(prompt('Valor pago:'));
+    tarefa.value = value;
+  }
+  const isCompleted = confirm('A tarefa foi realizada à parte?');
+  if (isCompleted) {
+    const duracao = parseFloat(prompt('Duração da tarefa (horas):'));
+    tarefa.duracao = duracao;
+  }
+  tarefas.push(tarefa);
+  renderTable();
+  renderlistaImportancia();
 
-      mostrarOrdemBtn.addEventListener('click', () => {
-    if (listaImportancia.style.display === 'none') {
-      listaImportancia.style.display = 'block';
-      tituloImportancia.style.display = 'block';
-    } else {
-      listaImportancia.style.display = 'none';
-      tituloImportancia.style.display = 'none';
-    }
-  });
+  descricaoInput.value = '';
+  autorInput.value = '';
+  deptoInput.value = '';
+  importanciaInput.value = '';
+});
+
+mostrarOrdemBtn.addEventListener('click', () => {
+if (listaImportancia.style.display === 'none') {
+listaImportancia.style.display = 'block';
+tituloImportancia.style.display = 'block';
+} else {
+listaImportancia.style.display = 'none';
+tituloImportancia.style.display = 'none';
+}
+});
